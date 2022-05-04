@@ -75,6 +75,21 @@ String nameUpper = Optional.ofNullable(customer.getName())
                 .orElse("");
 ```
 
+## Operation if Not Null
+
+```java
+//                int id = 2;
+//                Person person = session.get(Person.class, id);
+//                if (person != null) {
+//                  System.out.println("Deleting");
+//                  session.delete(aktor);
+//                }
+
+            int id = 2;
+            Optional<Person> person = Optional.ofNullable(session.get(Person.class, id));
+            person.ifPresent(value -> session.delete(value));
+```
+
 ## Operation to Null Value
 
 ```java
