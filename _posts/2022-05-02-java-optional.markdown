@@ -35,6 +35,8 @@ public class DemoOptional {
 }
 ```
 
+Sekilas program ini tidak ada yang salah, ketika dicompile program ini tidak akan mengalami pesan error, tetapi ketika dieksekusi program ini akan menghasilkan error dikarenakan variable `john` yang dipanggil masih belum ada nilainya alias `null`.
+
 Ketika program ini di jalankan/run maka akan menghasilkan exception `NullPointerException`, karena memang array students index 10 masih bernilai `null`.
 
 ```bash
@@ -63,7 +65,7 @@ Output:
 Name : JOHN DOE
 ```
 
-Contoh penggunaan `if` seperti contoh di atas tidaklah salah, tetapi karena seringnya programmer Java mendapatkan permasalahan di atas maka Java 8 membuatkan solusi lain menggunakan class `Optional`. Contoh program di atas dapat disederhanakan menggunakan class Optional seperti contoh sebagai berikut:
+Contoh penggunaan `if` seperti contoh di atas tidaklah salah, tetapi karena seringnya programmer Java mendapatkan permasalahan seperti contoh di atas maka Java 8 membuatkan solusi lain menggunakan class `Optional`. Contoh program di atas dapat disederhanakan menggunakan class Optional seperti contoh sebagai berikut:
 
 ```java
 import java.util.Optional;
