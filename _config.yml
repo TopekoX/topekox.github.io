@@ -18,12 +18,12 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "TopekoX Blog"
 title_separator          : "-"
-subtitle                 : "Life to Learn"
+subtitle                 : "Life so Crazy"
 name                     : "TopekoX"
 description              : "Ucup Topekox Blog."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "http://topekox.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "TopekoX/topekox.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -86,7 +86,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "false" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
     tracking_id          :
     anonymize_ip         : # true, false (default)
@@ -96,16 +96,16 @@ analytics:
 author:
   name             : "Ucup Topekox"
   avatar           : "/assets/images/avatar.jpeg"
-  bio              : "Seorang yang konyol, sedikit gila dan pencinta game."
+  bio              : "Seorang yang konyol, sedikit gila dan pencinta game.<br/><br/> <a href='https://trakteer.id/topekox' target='_blank'><img id='wse-buttons-preview' src='https://cdn.trakteer.id/images/embed/trbtn-red-1.png' height='40' width='100' style='border:0px;height:40px;margin-top:5;' alt='Trakteer Saya'></a>"
   location         : "Palu, Indonesia."
-  email            :
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:ucup.topekox@gmail.com"
-    - label: "Website"
+      # url: "mailto:ucup.topekox@gmail.com"
+    - label: "www.tutorialtimposu.com"
       icon: "fas fa-fw fa-link"
-      # url: "https://topekox.com"
+      url: "https://www.tutorialtimposu.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/ucuptopekox"
@@ -131,7 +131,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/topekox"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -140,7 +140,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://instagram.com/ucuptopekox"
 
 
 # Reading Files
