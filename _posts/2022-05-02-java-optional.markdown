@@ -1,5 +1,5 @@
 ---
-title:  "Menangani NullPointer Exception dengn Java Optional"   
+title:  "Menangani NullPointer Exception dengan Java Optional"   
 defaults:
   # _posts
   - scope:
@@ -14,6 +14,9 @@ defaults:
       share: true
       related: true
       show_date: true
+toc: true
+toc_label: "Daftar Isi Artikel ini"
+toc_icon: "file-alt"
 ---
 
 Bagi programmer Java sudah wajib hukumnya untuk selalu bertemu dengan `NullPointerException`, dan ini sebenarnya membuat crash program kita, dan yang jelas kita harus sedikit garuk kepala untuk menangani exception ini. Cara yang paling populer adalah diakali dengan statement kondisi `if else`. Untuk menangani ini, Java versi 8 mengenalkan fitur baru yaitu class baru bernama `Optional` yang berada pada package `java.util`. Class ini sangat membantu sekali untuk menangani `null` tanpa harus dicek terlebih dahulu dengan statement kondisi `if else`. 
