@@ -15,6 +15,10 @@ summaryLength = 50
   changeFreq = 'weekly'
   priority = 0.5
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 # --- Branding and profile (all optional, nothing is rendered when empty) ---
 [params]
   tagline = 'Random Notes'
