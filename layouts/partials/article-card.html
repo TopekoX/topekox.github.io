@@ -1,0 +1,19 @@
+<article class="card" data-anim>
+  <h2 class="card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ partial "article-meta.html" . }}
+  {{- with .Params.image }}
+  {{- $res := $.Resources.Get . }}
+  {{- /* width/height reserve the space so a lazy-loaded image cannot shift the layout.
+         Raster resources report their own size; otherwise (e.g. SVG) use optional imageWidth/imageHeight front matter. */}}
+  {{- $iw := $.Params.imageWidth }}{{ $ih := $.Params.imageHeight }}
+  {{- with $res }}{{ if ne .MediaType.SubType "svg" }}{{ $iw = .Width }}{{ $ih = .Height }}{{ end }}{{ end }}
+  <p class="card__image"><img src="{{ with $res }}{{ .RelPermalink }}{{ else }}{{ . | relURL }}{{ end }}"{{ with $iw }} width="{{ . }}"{{ end }}{{ with $ih }} height="{{ . }}"{{ end }} alt="{{ $.Params.imageAlt | default "" }}" loading="lazy"></p>
+  {{- end }}
+  <div class="card__excerpt">
+    <p>{{ .Params.description | default (.Summary | plainify | truncate 320) }}</p>
+  </div>
+  {{- with .Params.codePreview }}
+  <div class="code-block"><div class="code-bar" aria-hidden="true"></div>{{ highlight .code (.lang | default "text") "" }}</div>
+  {{- end }}
+  <p class="card__more"><a class="btn" href="{{ .RelPermalink }}">Baca artikel selengkapnya »<span class="sr-only"> : {{ .Title }}</span></a></p>
+</article>

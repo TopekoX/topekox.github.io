@@ -1,0 +1,93 @@
+baseURL = 'https://example.org/'
+languageCode = 'id'
+defaultContentLanguage = 'id'
+title = 'Topekox Blog'
+enableRobotsTXT = true
+summaryLength = 50
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ['html', 'rss', 'json']
+
+[sitemap]
+  changeFreq = 'weekly'
+  priority = 0.5
+
+# --- Branding and profile (all optional, nothing is rendered when empty) ---
+[params]
+  tagline = 'Random Notes'
+  description = 'Topekox Blog — Random Notes. Catatan acak seputar pemrograman, sistem, dan hal-hal lain.'
+  # Default Open Graph image (path under static/ or assets/), e.g. 'images/og.png'
+  # ogImage = ''
+
+  [params.profile]
+    name = 'Topekox'
+    # bio = ''
+    # avatar = 'images/avatar.png'   # file under static/ ; initials are shown when unset
+
+  # Social links, shown as icon-only links under the profile name.
+  # icon: instagram, github, telegram, mail, rss, link (name = accessible label, not displayed)
+  [[params.social]]
+    name = 'Instagram'
+    url = 'https://www.instagram.com/ucuptopekox/'
+    icon = 'instagram'
+
+  [[params.social]]
+    name = 'GitHub'
+    url = 'https://github.com/topekox'
+    icon = 'github'
+
+  # Extra rows for the site-information panel (only explicit values are shown)
+  # [[params.siteInfo]]
+  #   label = 'Dibuat dengan'
+  #   value = 'Hugo'
+
+# --- Navigation ---
+[[menus.main]]
+  name = 'Halaman Depan'
+  pageRef = '/'
+  weight = 10
+  [menus.main.params]
+    icon = 'home'
+
+[[menus.main]]
+  name = 'Tentang'
+  pageRef = '/tentang'
+  weight = 20
+  [menus.main.params]
+    icon = 'user'
+
+[[menus.main]]
+  name = 'Arsip'
+  pageRef = '/arsip'
+  weight = 30
+  [menus.main.params]
+    icon = 'archive'
+
+[[menus.main]]
+  name = 'Mencari'
+  pageRef = '/cari'
+  weight = 40
+  [menus.main.params]
+    icon = 'search'
+
+# --- Markdown, code highlighting, math ---
+[markup]
+  [markup.highlight]
+    noClasses = false          # class-based, styled by assets/css/chroma.css (github style)
+    lineNos = false            # opt in per block: ```go {linenos=true}
+    lineNumbersInTable = false
+    guessSyntax = false
+    tabWidth = 4
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      # Inline: \( ... \)   Display: $$ ... $$  or  \[ ... \]
+      # A single "$" is intentionally NOT a delimiter (avoids clashes with prices like $5).
+      inline = [['\(', '\)']]
+      block = [['$$', '$$'], ['\[', '\]']]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

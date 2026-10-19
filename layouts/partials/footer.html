@@ -1,0 +1,4 @@
+<footer class="footer" data-anim>
+  <p>© {{ now.Year }} {{ site.Title }} · Dibuat dengan <a href="https://gohugo.io/">Hugo</a>
+    {{- with .OutputFormats.Get "rss" }} · <a href="{{ .RelPermalink }}">RSS</a>{{ end }}</p>
+</footer>

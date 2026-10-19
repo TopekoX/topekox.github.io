@@ -1,0 +1,12 @@
+{{- $cur := . }}
+{{- if gt .TotalPages 1 }}
+<nav class="pagination" data-anim aria-label="Navigasi halaman">
+  {{- if .HasPrev }}<a class="pagination__step" href="{{ .Prev.URL }}" rel="prev">« Sebelumnya</a>{{ end }}
+  <ul>
+    {{- range .Pagers }}
+    <li>{{ if eq .PageNumber $cur.PageNumber }}<span aria-current="page">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}" aria-label="Halaman {{ .PageNumber }}">{{ .PageNumber }}</a>{{ end }}</li>
+    {{- end }}
+  </ul>
+  {{- if .HasNext }}<a class="pagination__step" href="{{ .Next.URL }}" rel="next">Berikutnya »</a>{{ end }}
+</nav>
+{{- end }}

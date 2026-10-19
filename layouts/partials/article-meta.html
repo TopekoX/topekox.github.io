@@ -1,0 +1,8 @@
+<p class="meta">
+  <span class="meta__item">{{ partial "icon.html" "calendar" }}Diterbitkan di: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time></span>
+  {{- with .GetTerms "categories" }}
+  <span class="meta__sep" aria-hidden="true">|</span>
+  <span class="meta__item">{{ partial "icon.html" "folder" }}Kategori:
+    {{- range $i, $t := . }}{{ if $i }},{{ end }} <a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</span>
+  {{- end }}
+</p>

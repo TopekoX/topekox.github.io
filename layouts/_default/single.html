@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{- $isPost := eq .Section "posts" }}
+<article class="card card--article" data-anim>
+  <header>
+    <h1 class="card__title">{{ .Title }}</h1>
+    {{- if $isPost }}{{ partial "article-meta.html" . }}{{ end }}
+  </header>
+  {{- if and .Params.toc .TableOfContents }}
+  <details class="toc" open><summary>Daftar isi</summary>{{ .TableOfContents }}</details>
+  {{- end }}
+  <div class="prose">{{ .Content }}</div>
+  {{- if $isPost }}
+  {{- with .GetTerms "tags" }}
+  <p class="tags">{{ partial "icon.html" "tag" }}<span class="sr-only">Label:</span>
+    {{- range . }} <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</p>
+  {{- end }}
+  {{- end }}
+</article>
+{{- if $isPost }}
+<nav class="card post-nav" data-anim aria-label="Artikel lain">
+  {{- /* In Hugo, PrevInSection is the older page and NextInSection the newer one (default date-desc order). */}}
+  {{- with .PrevInSection }}<a class="post-nav__older" href="{{ .RelPermalink }}" rel="prev"><small>« Lebih lama</small><span>{{ .Title }}</span></a>{{ end }}
+  {{- with .NextInSection }}<a class="post-nav__newer" href="{{ .RelPermalink }}" rel="next"><small>Lebih baru »</small><span>{{ .Title }}</span></a>{{ end }}
+</nav>
+{{- end }}
+{{ end }}

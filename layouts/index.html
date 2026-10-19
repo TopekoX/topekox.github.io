@@ -1,0 +1,15 @@
+{{ define "canonical" }}
+{{- /* Paginated pages are their own canonical (page 2 must not point at page 1). Same Paginate args as "main". */ -}}
+<link rel="canonical" href="{{ (.Paginate (where site.RegularPages "Type" "posts")).URL | absURL }}">
+{{ end }}
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "posts" }}
+{{- $pager := .Paginate $posts }}
+<h1 class="sr-only">{{ site.Title }}</h1>
+{{- range $pager.Pages }}
+  {{ partial "article-card.html" . }}
+{{- else }}
+  <section class="card" data-anim><p class="card__excerpt">Belum ada artikel.</p></section>
+{{- end }}
+{{ partial "pagination.html" $pager }}
+{{ end }}

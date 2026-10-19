@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="card" data-anim>
+  <h1 class="card__title">{{ .Title }}</h1>
+  <ul class="term-list">
+    {{- range .Data.Terms.Alphabetical }}
+    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> <span class="term-list__count">({{ .Count }})</span></li>
+    {{- end }}
+  </ul>
+</section>
+{{ end }}

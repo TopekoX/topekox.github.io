@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="card card--article" data-anim>
+  <h1 class="card__title">{{ .Title }}</h1>
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{- range (where site.RegularPages "Type" "posts").GroupByDate "2006" }}
+  <section class="archive-year">
+    <h2>{{ .Key }} <span class="archive-year__count">({{ len .Pages }})</span></h2>
+    <ul>
+      {{- range .Pages }}
+      <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- else }}
+  <p>Belum ada artikel.</p>
+  {{- end }}
+</section>
+{{ end }}

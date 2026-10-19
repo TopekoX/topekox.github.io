@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="card card--article" data-anim>
+  <h1 class="card__title">{{ .Title }}</h1>
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <form class="search" role="search" action="{{ .RelPermalink }}" method="get">
+    <label for="q" class="sr-only">Cari artikel</label>
+    <input id="q" name="q" type="search" placeholder="Cari judul, isi, kategori, atau label…" autocomplete="off" data-index="{{ "index.json" | relURL }}">
+    <button type="submit" class="btn">Cari</button>
+  </form>
+  <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+  <ol id="search-results" class="search-results"></ol>
+  <noscript><p>Pencarian membutuhkan JavaScript. Silakan gunakan <a href="{{ "arsip/" | relURL }}">Arsip</a>.</p></noscript>
+</section>
+{{ end }}

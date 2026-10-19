@@ -1,0 +1,9 @@
+<header class="panel brand" data-anim>
+  <a class="brand__link" href="{{ "/" | relURL }}">
+    <span class="brand__title">{{ site.Title }}</span>
+    {{ with site.Params.tagline }}<span class="brand__tagline">{{ . }}</span>{{ end }}
+  </a>
+  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+    {{ partial "icon.html" "menu" }}<span class="sr-only">Menu</span>
+  </button>
+</header>

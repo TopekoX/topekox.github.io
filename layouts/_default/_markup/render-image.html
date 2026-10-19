@@ -1,0 +1,12 @@
+{{- /* Markdown images: lazy-loaded, with intrinsic width/height when the file is a page resource or in assets/ (prevents layout shift). */ -}}
+{{- $src := .Destination | safeURL -}}
+{{- $w := "" -}}{{- $h := "" -}}
+{{- with urls.Parse .Destination -}}
+  {{- if not .IsAbs -}}
+    {{- with or ($.PageInner.Resources.Get .Path) (resources.Get .Path) -}}
+      {{- $src = .RelPermalink -}}
+      {{- if ne .MediaType.SubType "svg" -}}{{- $w = .Width -}}{{- $h = .Height -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $w }} width="{{ . }}"{{ end }}{{ with $h }} height="{{ . }}"{{ end }} loading="lazy">

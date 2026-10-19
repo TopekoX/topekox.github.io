@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default "id" }}">
+<head>
+  {{ partial "head.html" . }}
+  {{ block "canonical" . }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="layout">
+    {{ partial "sidebar.html" . }}
+    <main id="main" class="content" tabindex="-1">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+  <button type="button" class="to-top" id="to-top" aria-label="Kembali ke atas" hidden>{{ partial "icon.html" "arrow-up" }}</button>
+  {{ partial "scripts.html" . }}
+</body>
+</html>

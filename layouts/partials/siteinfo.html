@@ -1,0 +1,19 @@
+{{- /* Only values computed from content or explicitly configured in params.siteInfo. */}}
+{{- $posts := where site.RegularPages "Type" "posts" }}
+{{- $extra := site.Params.siteInfo | default slice }}
+{{- if or $posts $extra }}
+<section class="panel siteinfo" data-anim aria-labelledby="siteinfo-title">
+  <h2 id="siteinfo-title">{{ partial "icon.html" "chart" }}<span>Informasi Situs</span></h2>
+  <dl>
+    {{- with $posts }}
+    {{- $newest := index . 0 }}
+    {{- $updated := index (sort . "Lastmod" "desc") 0 }}
+    <div><dt>{{ partial "icon.html" "calendar" }}Artikel terbaru</dt><dd>{{ $newest.Date | time.Format ":date_long" }}</dd></div>
+    <div><dt>{{ partial "icon.html" "clock" }}Terakhir diperbarui</dt><dd>{{ $updated.Lastmod | time.Format ":date_long" }}</dd></div>
+    {{- end }}
+    {{- range $extra }}
+    <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+    {{- end }}
+  </dl>
+</section>
+{{- end }}

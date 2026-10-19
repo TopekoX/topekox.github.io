@@ -1,0 +1,12 @@
+{{ define "canonical" }}<link rel="canonical" href="{{ (.Paginate .Pages).URL | absURL }}">{{ end }}
+{{ define "main" }}
+<header class="card card--heading" data-anim>
+  <h1 class="card__title">{{ .Title }}</h1>
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+</header>
+{{- $pager := .Paginate .Pages }}
+{{- range $pager.Pages }}
+  {{ partial "article-card.html" . }}
+{{- end }}
+{{ partial "pagination.html" $pager }}
+{{ end }}

@@ -1,0 +1,9 @@
+{{- $page := . }}
+<nav class="panel nav" data-anim id="site-nav" aria-label="Navigasi utama">
+  <ul>
+    {{- range site.Menus.main }}
+    {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
+    <li><a href="{{ .URL }}"{{ if $active }} class="is-active" aria-current="page"{{ end }}>{{ partial "icon.html" (.Params.icon | default "link") }}<span>{{ .Name }}</span></a></li>
+    {{- end }}
+  </ul>
+</nav>

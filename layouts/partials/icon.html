@@ -1,0 +1,20 @@
+{{- $paths := dict
+  "home" `<path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>`
+  "user" `<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>`
+  "archive" `<rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v12h14V8"/><path d="M10 12h4"/>`
+  "search" `<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`
+  "calendar" `<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>`
+  "folder" `<path d="M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>`
+  "tag" `<path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1"/>`
+  "github" `<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 00-.9-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0020 4.8 5.1 5.1 0 0019.9 1S18.7.7 16 2.5a13.4 13.4 0 00-7 0C6.3.7 5.1 1 5.1 1A5.1 5.1 0 005 4.8a5.4 5.4 0 00-1.5 3.8c0 5.4 3.3 6.6 6.4 7A3.4 3.4 0 009 18.1V22"/>`
+  "instagram" `<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.6 6.4h.01"/>`
+  "telegram" `<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/>`
+  "mail" `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>`
+  "link" `<path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/>`
+  "rss" `<path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/>`
+  "chart" `<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>`
+  "clock" `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`
+  "menu" `<path d="M3 6h18M3 12h18M3 18h18"/>`
+  "arrow-up" `<path d="M12 19V5M5 12l7-7 7 7"/>`
+}}
+<svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ index $paths . | default (index $paths "link") | safeHTML }}</svg>

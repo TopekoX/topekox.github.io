@@ -1,0 +1,26 @@
+{{- $p := site.Params.profile | default dict }}
+{{- $posts := where site.RegularPages "Type" "posts" }}
+<section class="panel profile" data-anim aria-label="Profil">
+  {{- with $p.avatar }}
+  <img class="profile__avatar" src="{{ . | relURL }}" alt="" width="128" height="128">
+  {{- else }}
+  {{- $initials := "" }}
+  {{- range first 2 (split ($p.name | default site.Title) " ") }}{{ $initials = print $initials (substr . 0 1) }}{{ end }}
+  <div class="profile__avatar profile__avatar--initials" aria-hidden="true">{{ upper $initials }}</div>
+  {{- end }}
+  {{- with $p.name }}<h2 class="profile__name">{{ . }}</h2>{{ end }}
+  {{- /* Icon-only social links (names are aria-labels, never visible). Configured in hugo.toml [[params.social]]. */}}
+  {{- with site.Params.social }}
+  <ul class="profile__social">
+    {{- range . }}
+    <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" data-icon="{{ .icon }}">{{ partial "icon.html" (.icon | default "link") }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{- with $p.bio }}<p class="profile__bio">{{ . }}</p>{{ end }}
+  <dl class="profile__stats">
+    <div><dt>Artikel</dt><dd>{{ len $posts }}</dd></div>
+    {{- with site.Taxonomies.categories }}<div><dt>Kategori</dt><dd>{{ len . }}</dd></div>{{ end }}
+    {{- with site.Taxonomies.tags }}<div><dt>Label</dt><dd>{{ len . }}</dd></div>{{ end }}
+  </dl>
+</section>
