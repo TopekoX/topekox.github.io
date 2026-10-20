@@ -1,4 +1,20 @@
+{{ define "canonical" }}{{ if eq .Kind "term" }}<link rel="canonical" href="{{ (.Paginate .Pages).URL | absURL }}">{{ else }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}{{ end }}
 {{ define "main" }}
+{{- if eq .Kind "term" }}
+<header class="card card--heading" data-anim>
+  <h1 class="card__title">{{ if eq .Data.Singular "category" }}Kategori{{ else }}Label{{ end }}: {{ .Title }}</h1>
+  <p class="meta"><span class="meta__item">{{ len .Pages }} artikel</span></p>
+</header>
+{{- $pager := .Paginate .Pages }}
+{{- range $pager.Pages }}
+  {{ partial "article-card.html" . }}
+{{- else }}
+<section class="card" data-anim>
+  <p>Belum ada artikel di sini.</p>
+</section>
+{{- end }}
+{{ partial "pagination.html" $pager }}
+{{- else }}
 <section class="card" data-anim>
   <h1 class="card__title">{{ .Title }}</h1>
   <ul class="term-list">
@@ -7,4 +23,5 @@
     {{- end }}
   </ul>
 </section>
+{{- end }}
 {{ end }}
