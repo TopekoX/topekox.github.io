@@ -129,6 +129,7 @@ img { max-width: 100%; height: auto; }
 }
 .profile__social a[data-icon="instagram"] { --social-hover: #c13584; }
 .profile__social a[data-icon="github"] { --social-hover: #24292f; }
+.profile__social a[data-icon="linkedin"] { --social-hover: #0a66c2; }
 .profile__social a:focus-visible { outline: 3px solid var(--brand-bg); outline-offset: 1px; color: var(--social-hover); }
 @media (hover: hover) {
   .profile__social a:hover { color: var(--social-hover); transform: translateY(-2px) scale(1.12); }

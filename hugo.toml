@@ -22,14 +22,14 @@ summaryLength = 50
 # --- Branding and profile (all optional, nothing is rendered when empty) ---
 [params]
   tagline = 'Random Notes'
-  description = 'Topekox Blog — Random Notes. Catatan acak seputar pemrograman, sistem, dan hal-hal lain.'
+  description = 'Topekox Blog — Random Notes. Catatan acak seputar perjalanan, pengalaman, teknologi dan hal-hal lain.'
   # Default Open Graph image (path under static/ or assets/), e.g. 'images/og.png'
   # ogImage = ''
 
   [params.profile]
-    name = 'Topekox'
-    # bio = ''
-    # avatar = 'images/avatar.png'   # file under static/ ; initials are shown when unset
+    name = 'Ucup Topekox'
+    bio = 'Penikmat alam yang sekedar membagikan catatan perjalanan, pengalaman dan teknologi.'
+    avatar = '/images/foto.webp'   # file under static/ ; initials are shown when unset
 
   # Social links, shown as icon-only links under the profile name.
   # icon: instagram, github, telegram, mail, rss, link (name = accessible label, not displayed)
@@ -42,6 +42,11 @@ summaryLength = 50
     name = 'GitHub'
     url = 'https://github.com/topekox'
     icon = 'github'
+
+  [[params.social]]
+    name = 'LinkedIn'
+    url = 'https://www.linkedin.com/in/topekox'
+    icon = 'linkedin'
 
   # Extra rows for the site-information panel (only explicit values are shown)
   # [[params.siteInfo]]
