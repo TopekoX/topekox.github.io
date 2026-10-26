@@ -1,0 +1,16 @@
+{{- /* Icon-only share row; names are aria-labels/titles, never visible text. */}}
+{{- $u := .Permalink | urlquery }}
+{{- $t := .Title | urlquery }}
+{{- $nets := slice
+  (dict "id" "x" "name" "Bagikan ke X" "href" (printf "https://twitter.com/intent/tweet?url=%s&text=%s" $u $t))
+  (dict "id" "threads" "name" "Bagikan ke Threads" "href" (printf "https://www.threads.net/intent/post?text=%s%%20%s" $t $u))
+  (dict "id" "facebook" "name" "Bagikan ke Facebook" "href" (printf "https://www.facebook.com/sharer/sharer.php?u=%s" $u))
+  (dict "id" "whatsapp" "name" "Bagikan ke WhatsApp" "href" (printf "https://wa.me/?text=%s%%20%s" $t $u))
+  (dict "id" "linkedin" "name" "Bagikan ke LinkedIn" "href" (printf "https://www.linkedin.com/sharing/share-offsite/?url=%s" $u))
+}}
+<div class="share" role="group" aria-label="Bagikan artikel">
+  {{- range $nets }}
+  <a class="share__btn" data-net="{{ .id }}" href="{{ .href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "icon.html" .id }}</a>
+  {{- end }}
+  <button type="button" class="share__btn" data-copy="{{ .Permalink }}" aria-label="Salin tautan" title="Salin tautan"><span class="icon-link">{{ partial "icon.html" "link" }}</span><span class="icon-check">{{ partial "icon.html" "check" }}</span></button>
+</div>

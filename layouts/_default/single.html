@@ -14,6 +14,7 @@
   <p class="tags">{{ partial "icon.html" "tag" }}<span class="sr-only">Label:</span>
     {{- range . }} <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</p>
   {{- end }}
+  {{ partial "share.html" . }}
   {{- end }}
 </article>
 {{- if $isPost }}

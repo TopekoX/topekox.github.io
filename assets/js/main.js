@@ -38,4 +38,22 @@
     });
   }
   update();
+
+  var copy = document.querySelector('.share__btn[data-copy]');
+  if (copy) {
+    copy.addEventListener('click', function () {
+      var url = copy.getAttribute('data-copy');
+      var done = function () {
+        copy.classList.add('is-copied');
+        setTimeout(function () { copy.classList.remove('is-copied'); }, 1800);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done);
+      else {
+        var t = document.createElement('textarea');
+        t.value = url; document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(t);
+      }
+    });
+  }
 })();
