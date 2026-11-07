@@ -34,6 +34,18 @@ A single `$` is deliberately not a delimiter. MathJax is fetched from jsDelivr (
 ## Code blocks
 Fenced blocks are highlighted at build time by Chroma (`github` style, `assets/css/chroma.css`) and wrapped by `layouts/_default/_markup/render-codeblock.html`. Line numbers: ```` ```go {linenos=true} ````.
 
+Each block gets a **Copy** button (injected by `assets/js/main.js`, styled `.code-copy` in `main.css`). It copies the code without line numbers and shows "Copied!" briefly.
+
+## Callouts
+Use GitHub-style alert blockquotes (rendered by `layouts/_default/_markup/render-blockquote.html`, styled `.callout` in `main.css`):
+
+```markdown
+> [!TIP] Optional custom title
+> Message text.
+```
+
+Types: `INFO` (blue), `TIP` (green), `WARNING` (orange), `ERROR` (red). Aliases: `NOTE` → info, `IMPORTANT` → warning, `CAUTION` → error. Default titles are Indonesian (Info, Tips, Peringatan, Error). A plain `> quote` stays a normal blockquote.
+
 ## Entrance animations
 Containers marked `data-anim` (brand, nav, profile, site info, cards, pagination, footer) fade in with a random variant, duration (350–650 ms), distance (8–16 px) and a bounded stagger on every page load. CSS keyframes are in `assets/css/main.css`; `assets/js/anim.js` only picks the random values. Nothing is hidden without JS, a CSS failsafe reveals content after 2 s if the script fails, and `prefers-reduced-motion: reduce` disables the effect entirely. Add `data-anim` to a template element to include it.
 

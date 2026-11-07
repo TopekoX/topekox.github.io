@@ -1,0 +1,12 @@
+{{- /* Callouts: > [!INFO] / [!TIP] / [!WARNING] / [!ERROR] (also NOTE, IMPORTANT, CAUTION). Optional title: > [!TIP] Judul */ -}}
+{{- if eq .Type "alert" -}}
+  {{- $t := .AlertType -}}
+  {{- $labels := dict "info" "Info" "note" "Catatan" "tip" "Tips" "important" "Penting" "warning" "Peringatan" "caution" "Awas" "error" "Error" -}}
+  {{- $class := cond (eq $t "note") "info" (cond (eq $t "caution") "error" (cond (eq $t "important") "warning" $t)) -}}
+  <div class="callout callout--{{ $class }}" role="note">
+    <p class="callout__title">{{ with .AlertTitle }}{{ . }}{{ else }}{{ index $labels $t | default (title $t) }}{{ end }}</p>
+    <div class="callout__body">{{ .Text }}</div>
+  </div>
+{{- else -}}
+  <blockquote>{{ .Text }}</blockquote>
+{{- end -}}
