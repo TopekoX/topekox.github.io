@@ -174,7 +174,7 @@ img { max-width: 100%; height: auto; }
 
 /* Cards */
 .card { background: var(--panel); box-shadow: var(--shadow-panel); border: 1px solid var(--border); padding: 28px var(--pad); margin: 0 0 var(--gap); }
-.card__title { text-align: center; font-size: var(--fs-title); font-weight: 300; line-height: 1.4; margin: 0 0 6px; color: var(--text); overflow-wrap: anywhere; }
+.card__title { text-align: center; font-size: var(--fs-title); font-weight: 400; line-height: 1.4; margin: 0 0 6px; color: var(--text); overflow-wrap: anywhere; }
 .card__title a { color: inherit; text-decoration: none; }
 .card__title a:hover { text-decoration: underline; }
 .meta { text-align: center; color: var(--muted); font-size: var(--fs-meta); margin: 0 0 20px; }
@@ -217,6 +217,15 @@ code, kbd, samp { font-family: var(--font-mono); }
   content: ""; width: 12px; height: 12px; border-radius: 50%; background: #fc625d;
   box-shadow: 20px 0 0 #fdbc40, 40px 0 0 #35cd4b; margin-right: 40px;
 }
+.code-block { position: relative; }
+.code-copy {
+  position: absolute; top: 5px; right: 10px; height: 24px; padding: 0 10px;
+  font: .75rem/1 var(--font-mono); color: #444; background: #fff;
+  border: 1px solid #d0d0d0; border-radius: 4px; cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.code-copy:hover, .code-copy:focus-visible { background: #eaeaea; border-color: #b5b5b5; color: #111; }
+.code-copy.is-copied { color: #1a7f37; border-color: #1a7f37; }
 .code-block .highlight { margin: 0; }
 .code-block .chroma, .code-block pre { margin: 0; background: transparent !important; }
 .code-block pre {
